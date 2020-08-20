@@ -1,7 +1,82 @@
+.fail {
+    color: red;
+}
+
+.failStatus {
+    background-color: rgba(255, 13, 13, 0.719);
+    color: white;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.topperStatus {
+    background-color: rgba(74, 216, 18, 0.719);
+    color: white;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.passStatus {
+    background-color: rgba(80, 90, 76, 0.719);
+    color: white;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.topper {
+    color: green;
+}
+
+.tableRow {
+    height: 18px;
+}
+
+td {
+    height: 50px;
+    vertical-align: center;
+}
+
+.table {
+    border: 1px solid rgba(59, 58, 58, 0.438);
+    border-top: 1px;
+    border-radius: 10px;
+}
+
+.button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(26, 26, 173, 0.548);
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 12px;
+}
+
 @media only screen and (min-width: 768px) {
     .tableData {
         width: 100%;
-        border: 1px solid rgb(59, 58, 58);
     }
     table {
         width: 100%;
@@ -9,12 +84,12 @@
     .data {
         padding: 18px;
         font-style: italic;
-        border-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
     .dataHead {
         font-size: 25px;
         padding-bottom: 15px;
-        border-radius: 10px;
     }
     tr:nth-child(even) {
         background-color: #f2f2f2
@@ -23,51 +98,27 @@
         background-color: #000066;
         color: white;
     }
-    .fail {
-        color: red;
-    }
     .card {
         font-family: Arial, Helvetica, sans-serif;
         margin: auto;
         margin-top: 10%;
-        width: 60%;
+        width: 90%;
         padding: 20px;
         text-align: center;
         background-color: rgb(226, 225, 225);
         box-shadow: 0 12px 18px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
-        border-radius: 10px;
-    }
-    .card:hover {
-        box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
-    }
-    .container {
-        padding: 12px;
+        border-radius: 15px;
     }
     .buttonPosition {
         background-position-x: right;
         margin-right: 10;
-    }
-    .button {
-        border: none;
-        display: inline-block;
-        padding: 8px 16px;
-        vertical-align: middle;
-        overflow: hidden;
-        text-decoration: none;
-        color: white;
-        background-color: rgba(26, 26, 173, 0.548);
-        text-align: center;
-        cursor: pointer;
-        white-space: nowrap;
-        border-radius: 10px;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .tableData {
         width: 90%;
-        border: 1px solid rgb(59, 58, 58);
     }
     table {
         width: 90%;
@@ -103,11 +154,5 @@
         transition: 0.3s;
         width: 90%;
         border-radius: 10px;
-    }
-    .card:hover {
-        box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
-    }
-    .container {
-        padding: 12px 16px 12px 12px;
     }
 }

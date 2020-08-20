@@ -25,12 +25,12 @@ xhttp.onreadystatechange = function() {
                 total = parseInt(data[i].marks.Maths) + parseInt(data[i].marks.English) + parseInt(data[i].marks.Science);
             }
             if (tag == "fail") {
-                resultData = resultData + "<tr style=\"color:red;\" ><td >" + data[i].name.charAt(0).toUpperCase() + data[i].name.slice(1) + "</td><td>" + data[i].rollNumber + "</td><td>" + total + "</td><td>Fail</td></tr>";
+                resultData = resultData + "<tr class='tableRow fail' ><td >" + data[i].name.charAt(0).toUpperCase() + data[i].name.slice(1) + "</td><td>" + data[i].rollNumber + "</td><td>" + total + "</td><td ><span class='failStatus' >Fail</span></td></tr>";
 
             } else if (top == total) {
-                resultData = resultData + "<tr style=\"color:green;\" ><td >" + data[i].name.charAt(0).toUpperCase() + data[i].name.slice(1) + "</td><td>" + data[i].rollNumber + "</td><td>" + total + "</td><td>Topper</td></tr>";
+                resultData = resultData + "<tr class='tableRow topper'  ><td >" + data[i].name.charAt(0).toUpperCase() + data[i].name.slice(1) + "</td><td>" + data[i].rollNumber + "</td><td>" + total + "</td><td ><span class='topperStatus'>Topper</span></td></tr>";
             } else {
-                resultData = resultData + "<tr ><td >" + data[i].name.charAt(0).toUpperCase() + data[i].name.slice(1) + "</td><td>" + data[i].rollNumber + "</td><td>" + total + "</td><td>Pass</td></tr>";
+                resultData = resultData + "<tr class='tableRow pass' ><td >" + data[i].name.charAt(0).toUpperCase() + data[i].name.slice(1) + "</td><td>" + data[i].rollNumber + "</td><td>" + total + "</td><td><span class='passStatus'>Pass</span></td></tr>";
             }
         }
         document.getElementById("result").innerHTML = resultData;

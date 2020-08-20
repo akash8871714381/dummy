@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <title>Dummy</title>
+    <script src="assets/js/form.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -13,7 +15,7 @@
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 8px;
             resize: vertical;
         }
         
@@ -22,35 +24,31 @@
             display: inline-block;
         }
         
-        input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-        }
-        
-        input[type=submit]:hover {
+        .active:hover {
             background-color: #45a049;
         }
         
+        .deactive:hover {
+            background-color: #4d4e4dde;
+        }
+        
         .container {
+            margin: auto;
             border-radius: 5px;
             background-color: #f2f2f2;
             padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
         }
         
         .col-25 {
             float: left;
-            width: 25%;
+            width: 20%;
             margin-top: 6px;
         }
         
         .col-75 {
             float: left;
-            width: 75%;
+            width: 80%;
             margin-top: 6px;
         }
         
@@ -60,29 +58,88 @@
             clear: both;
         }
         
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 735px) {
             .col-25,
             .col-75,
             input[type=submit] {
                 width: 100%;
                 margin-top: 0;
             }
+            .active {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                float: center;
+                margin-top: 10px;
+            }
+            .deactive {
+                width: 100%;
+                margin-top: 10px;
+                background-color: #5e5f5ec9;
+                color: white;
+                padding: 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                float: center;
+            }
+        }
+        
+        @media screen and (min-width: 736px) {
+            .col-25,
+            .col-75,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+            .active {
+                background-color: #4CAF50;
+                color: white;
+                padding: 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                float: center;
+                margin-top: 10px;
+            }
+            .deactive {
+                background-color: #5e5f5ec9;
+                color: white;
+                padding: 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                float: center;
+                margin-top: 10px;
+            }
+            .container {
+                width: 50%;
+            }
+        }
+        
+        #submitButton {
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
 
-    <h2>Admission Form</h2>
+
 
     <div class="container">
-        <form>
+        <h2>Admission Form</h2>
+        <form method="post">
             <div class="row">
                 <div class="col-25">
-                    <label for="fname">First Name</label>
+                    <label for="fname">Name</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    <input class="formData" type="text" id="fname" pattern="[A-Za-z]" oninput=" checkAllVelidation()" name="firstname" max="20" placeholder="Name..">
                 </div>
             </div>
             <div class="row">
@@ -90,31 +147,36 @@
                     <label for="lname">Last Name</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    <input type="text" class="formData" id="lname" pattern="[A-Za-z]" oninput="checkAllVelidation()" name="lastname" max="20" placeholder="Last Name..">
                 </div>
             </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="country">Country</label>
+                    <label for="class">Class</label>
                 </div>
                 <div class="col-75">
-                    <select id="country" name="country">
-        <option value="australia">Australia</option>
-        <option value="canada">Canada</option>
-        <option value="usa">USA</option>
-      </select>
+                    <input type="text" class="formData" id="className" pattern="[a-zA-Z0-9]" name="class" oninput="checkAllVelidation()" placeholder="Your Class">
                 </div>
             </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="subject">Subject</label>
+                    <label for="year">Year of passing</label>
                 </div>
                 <div class="col-75">
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    <input type="text" class="formData" id="year" name="yop" oninput="checkAllVelidation()" onkeypress="return onlyNumberKey(event)" placeholder="Year of passing">
                 </div>
             </div>
             <div class="row">
-                <input type="submit" value="Submit">
+                <div class="col-25">
+                    <label for="percent">Percent</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" class="formData" id="percent" name="percent" oninput="checkAllVelidation()" onkeypress="return onlyNumberKey(event)" placeholder="Percent">
+                </div>
+            </div>
+
+            <div id="submitButton" onload="checkAllVelidation()" class="row">
+                <button class="deactive" disabled>Please Fill All Fields</button>
             </div>
         </form>
     </div>
